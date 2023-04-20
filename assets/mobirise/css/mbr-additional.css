@@ -77874,3 +77874,21 @@ a {
 .cid-tADs65ik2V .widget-text {
   color: #ffffff;
 }
+
+.cid-tz7itisdLT {
+  background: #9fdbf8;
+}
+
+.cid-tz7itisdLT .row-item.card1 {
+  background: #212132;
+  border: 7px solid;
+  border-image: linear-gradient(135deg, #ffdd65 2.76%, #ffaa5c 29.66%, #ff49c0 61%, #b67dff 99.93%) 1;
+  box-shadow: 1px 13px 13px 1px #b67dff;
+}
+
+.cid-tz7itisdLT .row-item.card2 {
+  background: #212132;
+  border: 7px solid;
+  border-image: linear-gradient(135deg, #ffdd65 2.76%, #ffaa5c 29.66%, #ff49c0 61%, #b67dff 99.93%) 1;
+  box-shadow: 1px 13px 13px 1px #b67dff;
+}
