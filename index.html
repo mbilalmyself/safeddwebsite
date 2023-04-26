@@ -23,13 +23,8 @@
     <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
     <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
+   
+	<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8SDPSFTP4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -628,7 +623,7 @@
     </div>
 </section>
 
-
+<script src="assets/disable-chat-popup.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/smoothscroll/smooth-scroll.js"></script>
 <script src="assets/ytplayer/index.js"></script>
@@ -637,43 +632,6 @@
 <script src="assets/formoid.min.js"></script>
 
 
-<script>
-function toggleDivVisibility(targetDiv, toggleButton) {
-  targetDiv.style.display = 'none';
-
-  toggleButton.addEventListener('click', () => {
-    if (targetDiv.style.display === 'none') {
-      targetDiv.style.display = 'block';
-    } else {
-      targetDiv.style.display = 'none';
-    }
-  });
-}
-
-function initObserver() {
-  const targetDivSelector = 'div.sc-gsDKAQ.bRVohJ';
-  const toggleButtonSelector = 'div.sc-hKwDye.hWATBB > div > div';
-
-  const observer = new MutationObserver((mutationsList, observer) => {
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'childList') {
-        const targetDiv = document.querySelector(targetDivSelector);
-        const toggleButton = document.querySelector(toggleButtonSelector);
-
-        if (targetDiv && toggleButton) {
-          toggleDivVisibility(targetDiv, toggleButton);
-          observer.disconnect(); // Disconnect the observer once the elements are found and processed
-        }
-      }
-    }
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-}
-
-document.addEventListener('DOMContentLoaded', initObserver);
-
-</script>
 <script>"use strict";if("loading"in HTMLImageElement.prototype){document.querySelectorAll('img[loading="lazy"],iframe[loading="lazy"]').forEach(e=>{e.src=e.dataset.src;if(e.getAttribute("style")){e.setAttribute("data-temp-style",e.getAttribute("style"))};e.style.paddingTop=100*e.getAttribute("data-aspectratio")+"%";e.style.height=0;e.onload=function(){if(e.getAttribute("data-temp-style")){e.setAttribute("style", e.getAttribute("data-temp-style"))}else{e.removeAttribute("style")};e.removeAttribute("data-temp-style")}})}else{const e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js";document.body.appendChild(e)}</script>
 </body>
 </html>
