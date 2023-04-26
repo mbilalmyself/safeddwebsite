@@ -77982,3 +77982,7 @@ a {
 .cid-tAA2Uzj9BF .items .list-item .text2 {
     font-size: 0.9em;
 }
+
+.hidden {
+            display: none;
+        }
