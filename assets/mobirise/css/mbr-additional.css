@@ -78002,3 +78002,8 @@ display:none!important;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg);
     background-repeat: no-repeat;
 }
+
+@media (max-width: 400px)
+.cid-tADs65ik2V .btn {
+font-size: 0.8rem!important;
+}
