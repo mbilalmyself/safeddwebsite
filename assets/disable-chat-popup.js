@@ -45,7 +45,7 @@ function replaceLink() {
     replacelink.href = 'tel:+18554210671';
 
     // Update the text content to "Call Now"
-    replacelink.textContent = 'Call Now';
+    replacelink.textContent = 'Call 855-421-0671';
   }
 
   // Check if the window width is greater than 500px
