@@ -1,3 +1,4 @@
+//FUNCTION TO CUSTOMIZE POPUP CHAT
 function toggleDivVisibility(targetDiv, toggleButton) {
   targetDiv.style.display = 'none';
 
@@ -34,7 +35,7 @@ function initObserver() {
 document.addEventListener('DOMContentLoaded', initObserver);
 
 
-//Create ReplaceLink function to replace book your ride button to call now
+//FUNCTION TO REPLACE BOOK YOUR RIDE BUTTON TO CALL NOW AS PER PAGESIZE
 function replaceLink() {
   // Select the anchor element with class "btn btn-danger display-5" and href="book-a-ride.html"
   var replacelink = document.querySelector('a.btn.btn-danger.display-5[href="book-a-ride.html"]');
