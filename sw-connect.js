@@ -20,7 +20,7 @@ b.innerHTML = '<span id="triangle-down" style="' + (c() ? "opacity:0;" : "opacit
 window.document.body.appendChild(b);
 setTimeout(function() {
 window.document.body.removeChild(b)
-}, 8E3)
+}, 8E3) //Define Seconds to remove popup
 }
 }, 5000); // Delay Execution of Whole Code by 5 seconds
 });
