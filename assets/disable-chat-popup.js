@@ -45,7 +45,7 @@ function replaceLink() {
     replacelink.href = 'tel:+18554210671';
 
     // Update the text content to "Call Now"
-    replacelink.textContent = 'Call 855-421-0671';
+    replacelink.textContent = 'Call Now';
   }
 
   // Check if the window width is greater than 500px
@@ -61,3 +61,13 @@ function replaceLink() {
 // Call the function when the window loads and when it's resized
 window.addEventListener('load', replaceLink);
 window.addEventListener('resize', replaceLink);
+
+
+//FUNCTION TO REPLACE BRAND TEXT
+function replaceBrandText() {
+  var brandLink = document.querySelector('a.brand-link');
+  if (brandLink.textContent = 'Safe Designated Drivers') {
+    brandLink.textContent = 'Safe Designated Driver'
+  }
+}
+replaceBrandText(); // call the function to execute it
