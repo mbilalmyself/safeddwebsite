@@ -16,3 +16,13 @@
 .my-float{
 	margin-top:16px;
 }
+.navbar-brand span a{
+  text-decoration: none;
+  background-image:none;
+}
+.navbar-brand span a img{
+  width:70%;
+}
+.navbar-brand span a:hover{
+  background-image:none !important;
+}
