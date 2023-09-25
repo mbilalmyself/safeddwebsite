@@ -175,7 +175,13 @@
 <label class="form-control-label mbr-fonts-style display-7">Enter Pick-up &amp; Drop Location</label>
 <div class="row">
 <div class="col">
-<input type="text" name="pickupLocation" placeholder="Pick-up Address &amp; City" data-form-field="pickupLocation" class="form-control text-multiple" required="required" value="" id="pickupLocation-formbuilder-1v">
+<!--<input type="text" name="pickupLocation" placeholder="Pick-up Address &amp; City" data-form-field="pickupLocation" class="form-control text-multiple" required="required" value="" id="pickupLocation-formbuilder-1v">-->
+<input
+          id="ship-address"
+          name="ship-address"
+          required
+          autocomplete="off"
+        />
 </div>
 <div class="col">
 <input type="text" name="dropLocation" placeholder="Destination Address &amp; City" data-form-field="dropLocation" class="form-control text-multiple" required="required" value="" id="dropLocation-formbuilder-1v">
@@ -561,7 +567,90 @@
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/formoid.min.js"></script>
 
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+  defer
+></script>
+<script>
+    let autocomplete;
+let address1Field;
+let address2Field;
+let postalField;
 
+function initAutocomplete() {
+  address1Field = document.querySelector("#ship-address");
+  address2Field = document.querySelector("#address2");
+  postalField = document.querySelector("#postcode");
+  // Create the autocomplete object, restricting the search predictions to
+  // addresses in the US and Canada.
+  autocomplete = new google.maps.places.Autocomplete(address1Field, {
+    componentRestrictions: { country: ["ca"] },
+    fields: ["address_components", "geometry"],
+    types: ["address"],
+  });
+  address1Field.focus();
+  // When the user selects an address from the drop-down, populate the
+  // address fields in the form.
+  autocomplete.addListener("place_changed", fillInAddress);
+}
+
+function fillInAddress() {
+  // Ge t the place details from the autocomplete object.
+  const place = autocomplete.getPlace();
+  let address1 = "";
+  let postcode = "";
+
+  // Get each component of the address from the place details,
+  // and then fill-in the corresponding field on the form.
+  // place.address_components are google.maps.GeocoderAddressComponent objects
+  // which are documented at http://goo.gle/3l5i5Mr
+  for (const component of place.address_components) {
+    // @ts-ignore remove once typings fixed
+    const componentType = component.types[0];
+
+    switch (componentType) {
+      case "street_number": {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
+
+      case "route": {
+        address1 += component.short_name;
+        break;
+      }
+
+      case "postal_code": {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
+
+      case "postal_code_suffix": {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case "locality":
+        document.querySelector("#locality").value = component.long_name;
+        break;
+      case "administrative_area_level_1": {
+        document.querySelector("#state").value = component.short_name;
+        break;
+      }
+      case "country":
+        document.querySelector("#country").value = component.long_name;
+        break;
+    }
+  }
+
+  address1Field.value = address1;
+  postalField.value = postcode;
+  // After filling the form with address components from the Autocomplete
+  // prediction, set cursor focus on the second address line to encourage
+  // entry of subpremise information such as apartment, unit, or floor number.
+  address2Field.focus();
+}
+
+window.initAutocomplete = initAutocomplete;
+</script>
 
 <script>"use strict";if("loading"in HTMLImageElement.prototype){document.querySelectorAll('img[loading="lazy"],iframe[loading="lazy"]').forEach(e=>{e.src=e.dataset.src;if(e.getAttribute("style")){e.setAttribute("data-temp-style",e.getAttribute("style"))};e.style.paddingTop=100*e.getAttribute("data-aspectratio")+"%";e.style.height=0;e.onload=function(){if(e.getAttribute("data-temp-style")){e.setAttribute("style", e.getAttribute("data-temp-style"))}else{e.removeAttribute("style")};e.removeAttribute("data-temp-style")}})}else{const e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js";document.body.appendChild(e)}</script>
 </body>
